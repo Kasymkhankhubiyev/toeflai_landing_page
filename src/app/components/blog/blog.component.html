@@ -1,0 +1,9 @@
+<div class="blog">
+    <h2>Our Blog</h2>
+    <ul>
+      <li *ngFor="let article of articles">
+        <a [routerLink]="['/blog', article.id]">{{ article.title }}</a>
+      </li>
+    </ul>
+  </div>
+  

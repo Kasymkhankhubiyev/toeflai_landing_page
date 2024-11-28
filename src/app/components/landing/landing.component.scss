@@ -1,0 +1,210 @@
+/* Variables */
+$primary-color: #0077ff;
+$secondary-color: #00c6ff;
+$text-color: #333;
+$light-bg: #f9f9f9;
+$dark-bg: #333;
+$font-stack: 'Arial', sans-serif;
+$transition-duration: 0.3s;
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-stack;
+  line-height: 1.6;
+  background-color: $light-bg;
+  color: $text-color;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Landing Container */
+.landing-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 120px 20px;
+  width: 100%;
+  background: linear-gradient(90deg, $primary-color 0%, $secondary-color 100%);
+  color: white;
+
+  .hero-content {
+    max-width: 800px;
+    animation: fadeIn 1s ease-in-out; /* Smooth appearance animation */
+
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      font-weight: bold;
+      line-height: 1.2;
+      text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3); /* Improved text visibility */
+    }
+
+    p {
+      font-size: 1.4rem;
+      margin-bottom: 30px;
+    }
+
+    .cta-button {
+      background-color: white;
+      color: $primary-color;
+      border: none;
+      padding: 15px 40px;
+      font-size: 1.2rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all $transition-duration ease-in-out;
+
+      &:hover {
+        background-color: lighten($primary-color, 20%);
+        color: white;
+        transform: translateY(-5px); /* Elevation effect */
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      &:active {
+        transform: translateY(0); /* Reset */
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
+}
+
+/* Features Section */
+.features {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Enables wrapping for responsiveness */
+  gap: 40px;
+  padding: 60px 20px;
+  background-color: $light-bg;
+  width: 100%;
+  text-align: center;
+
+  .feature {
+    flex: 1 1 calc(33% - 40px); /* Responsive grid behavior */
+    max-width: 300px;
+    min-width: 250px;
+    background-color: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Subtle elevation */
+    transition: transform $transition-duration ease, box-shadow $transition-duration ease;
+
+    &:hover {
+      transform: translateY(-10px); /* Lift effect */
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: $primary-color;
+      font-weight: bold;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: $text-color;
+    }
+  }
+}
+
+/* Footer */
+.footer {
+  background-color: $dark-bg;
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+  width: 100%;
+
+  p {
+    margin-bottom: 15px;
+    font-size: 1rem;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    a {
+      color: white;
+      font-size: 1.1rem;
+      transition: color $transition-duration ease-in-out;
+
+      &:hover {
+        color: $secondary-color;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .hero {
+    padding: 100px 20px;
+
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+    }
+
+    .cta-button {
+      font-size: 1rem;
+      padding: 10px 30px;
+    }
+  }
+
+  .features {
+    flex-direction: column; /* Stacks features vertically */
+    gap: 30px;
+  }
+
+  .feature {
+    max-width: 100%;
+    padding: 20px; /* Improved spacing for small screens */
+  }
+
+  .footer nav {
+    flex-direction: column;
+    gap: 10px;
+
+    a {
+      font-size: 1rem;
+    }
+  }
+}
