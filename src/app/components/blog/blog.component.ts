@@ -11,7 +11,18 @@ import { RouterModule } from '@angular/router';
 })
 export class BlogComponent {
   articles = [
-    { id: 1, title: 'How ToeflAi Can Help You' },
-    { id: 2, title: 'Top TOEFL Preparation Tips' },
-  ];
+    {
+      id: 1,
+      title: 'How to Prepare for TOEFL',
+      excerpt: 'A comprehensive guide to help you ace the TOEFL exam...',
+      image: 'assets/toefl-guide.jpg'
+    },
+    {
+      id: 2,
+      title: 'Top 10 TOEFL Tips',
+      excerpt: 'Boost your score with these 10 expert tips...',
+      image: 'assets/toefl-tips.jpg'
+    },
+    ];
+
 }

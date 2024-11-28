@@ -26,6 +26,37 @@ a {
   text-decoration: none;
 }
 
+/* Header */
+.header {
+  background-color: $dark-bg;
+  color: white;
+  padding: 20px 0;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+
+    a {
+      color: white;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      transition: color $transition-duration ease-in-out;
+
+      &:hover {
+        color: $secondary-color;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
 /* Landing Container */
 .landing-container {
   display: flex;
@@ -47,14 +78,14 @@ a {
 
   .hero-content {
     max-width: 800px;
-    animation: fadeIn 1s ease-in-out; /* Smooth appearance animation */
+    animation: fadeIn 1s ease-in-out;
 
     h1 {
       font-size: 3.5rem;
       margin-bottom: 20px;
       font-weight: bold;
       line-height: 1.2;
-      text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3); /* Improved text visibility */
+      text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
     }
 
     p {
@@ -75,12 +106,12 @@ a {
       &:hover {
         background-color: lighten($primary-color, 20%);
         color: white;
-        transform: translateY(-5px); /* Elevation effect */
+        transform: translateY(-5px);
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
       }
 
       &:active {
-        transform: translateY(0); /* Reset */
+        transform: translateY(0);
         box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
       }
     }
@@ -91,7 +122,7 @@ a {
 .features {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap; /* Enables wrapping for responsiveness */
+  flex-wrap: wrap;
   gap: 40px;
   padding: 60px 20px;
   background-color: $light-bg;
@@ -99,17 +130,17 @@ a {
   text-align: center;
 
   .feature {
-    flex: 1 1 calc(33% - 40px); /* Responsive grid behavior */
+    flex: 1 1 calc(33% - 40px);
     max-width: 300px;
     min-width: 250px;
     background-color: white;
     border-radius: 12px;
     padding: 30px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Subtle elevation */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
     transition: transform $transition-duration ease, box-shadow $transition-duration ease;
 
     &:hover {
-      transform: translateY(-10px); /* Lift effect */
+      transform: translateY(-10px);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
     }
 
@@ -123,6 +154,60 @@ a {
     p {
       font-size: 1.2rem;
       color: $text-color;
+    }
+  }
+}
+
+/* Our Team Section */
+.team {
+  padding: 60px 20px;
+  text-align: center;
+  background-color: $light-bg;
+  width: 100%;
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: $primary-color;
+    font-weight: bold;
+  }
+
+  .team-members {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+
+    .team-member {
+      text-align: center;
+      max-width: 250px;
+      flex: 1;
+      padding: 20px;
+      transition: transform $transition-duration ease, box-shadow $transition-duration ease;
+
+      &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      img {
+        width: 100%;
+        border-radius: 50%;
+        margin-bottom: 20px;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      h3 {
+        font-size: 1.6rem;
+        margin-bottom: 10px;
+        color: $primary-color;
+      }
+
+      p {
+        font-size: 1.2rem;
+        color: $text-color;
+      }
     }
   }
 }
@@ -172,6 +257,10 @@ a {
 
 /* Responsive Styling */
 @media (max-width: 768px) {
+  .header {
+    padding: 10px 0;
+  }
+
   .hero {
     padding: 100px 20px;
 
@@ -190,13 +279,22 @@ a {
   }
 
   .features {
-    flex-direction: column; /* Stacks features vertically */
+    flex-direction: column;
     gap: 30px;
   }
 
   .feature {
     max-width: 100%;
-    padding: 20px; /* Improved spacing for small screens */
+    padding: 20px;
+  }
+
+  .team {
+    padding: 40px 20px;
+  }
+
+  .team-members {
+    flex-direction: column;
+    gap: 30px;
   }
 
   .footer nav {
