@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { MarkdownModule } from 'ngx-markdown';
 
@@ -14,17 +15,26 @@ export class BlogPostComponent implements OnInit {
   title = '';
   markdownContent = '';
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
   ngOnInit(): void {
     const articleId = this.route.snapshot.paramMap.get('id');
 
-    if (articleId === '1') {
-      this.title = 'How ToeflAi Can Help You';
-      this.markdownContent = '/assets/articles/article1.md';
-    } else if (articleId === '2') {
-      this.title = 'Top TOEFL Preparation Tips';
-      this.markdownContent = '/assets/articles/article2.md';
-    }
+    // Fetch the markdown content
+    this.http
+      .get(`/assets/articles/article${articleId}.md`, { responseType: 'text' })
+      .subscribe((content) => {
+        this.markdownContent = content;
+      });
+
+    // Fetch the article metadata
+    this.http
+      .get<{ id: string; title: string }[]>('/assets/articles/articles.json')
+      .subscribe((data) => {
+        const article = data.find((item: { id: string }) => item.id === articleId);
+        if (article) {
+          this.title = article.title;
+        }
+      });
   }
 }

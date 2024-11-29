@@ -6,6 +6,7 @@ $light-bg: #f9f9f9;
 $dark-bg: #333;
 $font-stack: 'Arial', sans-serif;
 $transition-duration: 0.3s;
+$border-radius: 8px; 
 
 /* Global Reset */
 * {
@@ -39,6 +40,7 @@ a {
   nav {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 30px;
 
     a {
@@ -54,7 +56,39 @@ a {
         text-decoration: underline;
       }
     }
+    .auth-buttons {
+      display: flex;
+      gap: 15px;
+  
+      .login-button,
+      .register-button {
+        background-color: transparent;
+        color: white;
+        border: 2px solid white;
+        padding: 8px 16px;
+        border-radius: $border-radius;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all $transition-duration ease-in-out;
+  
+        &:hover {
+          background-color: white;
+          color: $dark-bg;
+        }
+      }
+  
+      .register-button {
+        background-color: $secondary-color;
+        border-color: $secondary-color;
+  
+        &:hover {
+          background-color: darken($secondary-color, 10%);
+          color: white; // Ensure text remains readable
+        }
+      }
+    }
   }
+
 }
 
 /* Landing Container */
