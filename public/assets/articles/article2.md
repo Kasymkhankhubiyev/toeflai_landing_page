@@ -1,3 +1,1 @@
-# Top 10 TOEFL Tips
-
 Boost your score with these 10 expert tips...

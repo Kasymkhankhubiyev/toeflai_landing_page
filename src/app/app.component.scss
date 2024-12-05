@@ -1,0 +1,19 @@
+/* Blog Section */
+$primary-color: #0077ff;
+$secondary-color: #00c6ff;
+$text-color: #333;
+$light-bg: #f9f9f9;
+$dark-bg: #333;
+$font-stack: Arial, sans-serif;
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app-container {
+  width: 100%;
+  height: 100%;
+}

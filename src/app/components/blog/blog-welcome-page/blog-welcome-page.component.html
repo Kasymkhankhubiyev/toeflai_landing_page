@@ -1,0 +1,16 @@
+<div class="blog">
+    <h2>Our Blog</h2>
+    <div class="blog-posts">
+      <div class="blog-post" *ngFor="let article of articles">
+        <a [routerLink]="['/home/blog', article.id]" class="blog-link">
+          <div class="blog-image">
+            <img [src]="article.image" alt="{{ article.title }}" />
+          </div>
+          <div class="blog-content">
+            <h3>{{ article.title }}</h3>
+            <p>{{ article.excerpt }}</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
